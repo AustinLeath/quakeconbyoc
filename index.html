@@ -1,0 +1,279 @@
+<!DOCTYPE HTML>
+  <html>
+   <head>
+    <title>QuakeCon 2018 BYOC</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="home/images/mmrcalculator-icon.png" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="home/assets/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <style>
+        #titlename {
+            font-size: 75%;
+            vertical-align: middle;
+            padding-left: 5px;
+        }
+        #title-bar {
+            -webkit-app-region: drag;
+            height: 25px;
+            text-align: center;
+            line-height: 25px;
+            vertical-align: middle;
+            background-color: rgba(39, 40, 51, 1);
+            padding: none;
+            margin: 0px;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+        #title {
+            position: fixed;
+            top: 0px;
+            left: 6px;
+            color: white;
+            z-index: 100;
+        }
+        #title-bar-btns {
+            -webkit-app-region: no-drag;
+            position: fixed;
+            top: 0px;
+            right: 0px;
+        }
+        #min-btn {
+            background-color: transparent;
+            border-style: none;
+            outline-style: none;
+            height: auto;
+        }
+        #min-btn:hover {
+            background-color: grey;
+            height: auto;
+        }
+        #max-btn {
+            background-color: transparent;
+            border-style: none;
+            outline-style: none;
+            height: auto;
+        }
+        #max-btn:hover {
+            background-color: grey;
+            height: auto;
+        }
+        #close-btn {
+            background-color: transparent;
+            border-style: none;
+            outline-style: none;
+            height: auto;
+        }
+        #close-btn:hover {
+            background-color: red;
+            height: auto;
+        }
+        .noselect {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .disable {
+            display: none;
+        }
+        #presetbtn {
+            position: fixed;
+            top: 20%;
+            left: 10%;
+        }
+        #custombtn {
+            position: fixed;
+            top: 20%;
+            right: 10%;
+        }
+        #preset {
+            position: fixed;
+            width: 75%;
+            left: 12%;
+            top: 28%;
+        }
+        #custom {
+            position: fixed;
+            width: 75%;
+            left: 12%;
+            top: 28%;
+        }
+				.versionnum {
+					position: fixed;
+					top:75%;
+					width:100%;
+					text-align: center;
+					text-decoration: none;
+				}
+        #prompts {
+          position: fixed;
+          top:10%;
+          width:100%;
+          text-align: center;
+          text-decoration: none;
+        }
+        #donatebutton {
+          position: fixed;
+          bottom: 0%;
+          left: 3%;
+        }
+        #qconforumsclick {
+          position: fixed;
+          bottom: 10px;
+          left: 25px;
+        }
+        #twitterclick {
+          position: fixed;
+          bottom: 10px;
+          right: 25px;
+        }
+        #twitterimg {
+          width: 35px;
+          height: 35px;
+        }
+        #chart {
+          position: absolute;
+          width: 60%;
+          left: 20%;
+        }
+    </style>
+</head>
+
+<body class="noselect" id="background">
+    <div id="title-bar">
+        <div id="title-bar-btns">
+            <button id="min-btn"><font color="white">&#8722;</font></button>
+            <button id="max-btn"><font color="white">&#9634;</font></button>
+            <button id="close-btn"><font color="white">&#x2715;</font></button>
+        </div>
+        <div id="title">
+            <span style="vertical-align: middle;"><img src="home/images/quakecon-icon.png" style="width:15px; height:15px;"/></span><font id="titlename"><a id="apptitle">QuakeCon 2018 BYOC</a></font>
+        </div>
+    </div>
+    <div id="page-wrapper">
+      <div id="prompts">
+        <h1 id="cycletxt-1"></h1>
+        <h1 id="cycletxt-2"></h1>
+        <h1 id="cycletxt-3"></h1>
+      </div>
+
+    <a id="qconforumsclick" href="https://www.r6db.com"><img src="home/images/r6dblogo.svg" alt=""/></a>
+    <a id="twitterclick" href="https://twitter.com/R6RankCalc"><img id="twitterimg" src="home/images/twitter.png" alt=""/></a>
+        <section id="content">
+          <!-- Content -->
+            <div id="chart"></div>
+          <!-- Content -->
+           <!--Divider-->
+						<div class="versionnum">
+								<a>App Version: <span id="version">vX.Y.Z</a>
+								<a><div id="messages"></div></a>
+						</div>
+        </section>
+			</div>
+       <!-- Scripts -->
+        <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+        <!-- normal script imports etc  -->
+        <script src="home/assets/js/jquery.min.js"></script>
+        <!-- Insert this line after script imports -->
+        <script>if (window.module) module = window.module;</script>
+        <script src="home/assets/js/jquery.min.js"></script>
+        <script src="home/assets/js/cycletxt.js"></script>
+				<script src="home/assets/js/switchpreset.js"></script>
+				<script src="home/assets/js/switchcustom.js"></script>
+        <script src="https://cdn.seatsio.net/chart.js"></script>
+        <!--[if lte IE 8]><script src="home/assets/js/ie/respond.min.js"></script><![endif]-->
+        <script src="home/assets/js/main.js"></script>
+        <!--ELECTRON STUFF-->
+        <script>
+        new seatsio.SeatingChart({
+          divId: "chart",
+          publicKey: "bf8f9d39-d8a4-4743-ae3e-3926b4f96dc0",
+          event: "4749466"
+        }).render();
+        </script>
+        <script>
+            (function() {
+                // Retrieve remote BrowserWindow
+                const {
+                    BrowserWindow
+                } = require('electron').remote
+
+                function init() {
+                    // Minimize window
+                    document.getElementById("min-btn").addEventListener("click", (e) => {
+                        var window = BrowserWindow.getFocusedWindow();
+                        window.minimize();
+                    });
+
+                    // Maximize window
+                    document.getElementById("max-btn").addEventListener("click", (e) => {
+                        var window = BrowserWindow.getFocusedWindow();
+                        if (window.isMaximized()) {
+                            window.unmaximize();
+                        } else {
+                            window.maximize();
+                        }
+                    });
+
+                    // Close app
+                    document.getElementById("close-btn").addEventListener("click", (e) => {
+                        var window = BrowserWindow.getFocusedWindow();
+                        window.close();
+                    });
+                };
+
+                document.onreadystatechange = () => {
+                    if (document.readyState == "complete") {
+                        init();
+                    }
+                };
+            })();
+        </script>
+        <script>
+        // Display the current version
+        let version = window.location.hash.substring(1);
+        document.getElementById('version').innerText = version;
+        // Listen for messages
+        const {
+            ipcRenderer
+        } = require('electron');
+        ipcRenderer.on('message', function(event, text) {
+            var container = document.getElementById('messages');
+            var message = document.createElement('div');
+            message.innerHTML = text;
+            container.appendChild(message);
+        })
+        </script>
+        <script type='text/javascript'>
+          window.shell = require('electron').shell;
+          document.getElementById("qconforumsclick").addEventListener("click", function (e) {
+            e.preventDefault();
+            var remoteLink = this.getAttribute('href');
+            shell.openExternal( remoteLink );
+          });
+          document.getElementById("qconforumsclick").addEventListener("auxclick", function (e) {
+            e.preventDefault();
+            var remoteLink = this.getAttribute('href');
+            shell.openExternal( remoteLink );
+          });
+        </script>
+        <script type='text/javascript'>
+          document.getElementById("twitterclick").addEventListener("click", function (e) {
+            e.preventDefault();
+            var remoteLink = this.getAttribute('href');
+            shell.openExternal( remoteLink );
+          });
+          document.getElementById("twitterclick").addEventListener("auxclick", function (e) {
+            e.preventDefault();
+            var remoteLink = this.getAttribute('href');
+            shell.openExternal( remoteLink );
+          });
+        </script>
+    </body>
+</html>
