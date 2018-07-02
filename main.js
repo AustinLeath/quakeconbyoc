@@ -123,7 +123,7 @@ if (process.platform === 'darwin') {
       {
         label: 'Learn More About ' + name,
         accelerator: 'Control+L',
-        click () { require('electron').shell.openExternal('https://www.electronjs.org/apps/mmrcalculator') }
+        click () { require('electron').shell.openExternal('https://www.github.com/austinleath/quakeconbyoc') }
       },
       {
         type: 'separator'
@@ -152,7 +152,17 @@ if (process.platform === 'darwin') {
     ]
   },
   {
-    label: 'help',
+    label: 'View',
+    submenu: [
+      {
+        label:'Toggle Full Screen',
+        accelerator: 'F11',
+        role: 'togglefullscreen'
+      }
+    ]
+  },
+  {
+    label: 'Help',
     submenu: [
       {
         label: name + ' Version Info',
@@ -172,7 +182,7 @@ function sendStatusToWindow(text) {
   win.webContents.send('message', text);
 }
 function createDefaultWindow() {                                                                                    //frame: true if packaging for mac
-  win = new BrowserWindow({width: 1280, height: 720, minWidth: 1100, minHeight: 650, maxWidth: 7680, maxHeight: 4320, frame: false, backgroundColor: '#1c1d26', autoHideMenuBar: true});
+  win = new BrowserWindow({width: 1280, height: 720, minWidth: 1100, minHeight: 650, maxWidth: 7680, maxHeight: 4320, frame: true, backgroundColor: '#1c1d26', autoHideMenuBar: true});
   //win.webContents.openDevTools();
   win.on('closed', () => {
     win = null;
