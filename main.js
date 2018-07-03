@@ -111,49 +111,25 @@ if (process.platform === 'darwin') {
 } else {
   log.info('Successfully loaded menu for Win32.');
   // Windows Menu
-  const name = app.getName();
+  const version = app.getVersion();
   template.unshift({
-    label: name,
+    label: 'File',
     submenu: [
-      {
-        label: name + ' Version Info',
-        accelerator: 'Control+A',
-        role: 'about'
-      },
-      {
-        label: 'Learn More About ' + name,
-        accelerator: 'Control+L',
-        click () { require('electron').shell.openExternal('https://www.github.com/austinleath/quakeconbyoc') }
-      },
-      {
-        type: 'separator'
-      },
-      {
-        label: 'Donate',
-        accelerator: 'Control+D',
-        click () { require('electron').shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8') }
-      },
-      {
-        type: 'separator'
-      },
-      {
-        label: 'Hide',
-        accelerator: 'Control+H',
-        click () { win.hide(); }
-      },
-      {
-        type: 'separator'
-      },
       {
         label: 'Quit',
         accelerator: 'Control+Q',
         click() { app.quit(); }
-      },
+      }
     ]
   },
   {
     label: 'View',
     submenu: [
+      {
+        label:'Reload',
+        accelerator: 'Control+R',
+        role: 'reload'
+      },
       {
         label:'Toggle Full Screen',
         accelerator: 'F11',
@@ -162,13 +138,35 @@ if (process.platform === 'darwin') {
     ]
   },
   {
+    label: 'Window',
+    submenu: [
+      {
+        label:'Minimize',
+        accelerator: 'Control+M',
+        role: 'minimize'
+      },
+    ]
+  },
+  {
     label: 'Help',
     submenu: [
       {
-        label: name + ' Version Info',
-        accelerator: 'Control+A',
-        role: 'about'
-      }
+        label: 'Version ' + version,
+        enabled: false
+      },
+      {
+        label: 'Check for update',
+        enabled: false
+      },
+      {
+        label: 'Donate',
+        accelerator: 'Control+D',
+        click () { require('electron').shell.openExternal('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8') }
+      },
+      {
+        label: 'Learn More',
+        click () { require('electron').shell.openExternal('https://www.github.com/austinleath/quakeconbyoc') }
+      },
     ]
   })
 }
