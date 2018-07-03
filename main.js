@@ -137,7 +137,7 @@ if (process.platform === 'darwin') {
         type: 'separator'
       },
       {
-        label: 'Hide ' + name,
+        label: 'Hide',
         accelerator: 'Control+H',
         click () { win.hide(); }
       },
@@ -191,16 +191,16 @@ function createDefaultWindow() {                                                
   return win;
 }
 autoUpdater.on('checking-for-update', () => {
-  sendStatusToWindow('Checking for update...');
+  sendStatusToWindow('Checking for update..');
 })
 autoUpdater.on('update-available', (info) => {
-  sendStatusToWindow('An update is available! Downloading...');
+  sendStatusToWindow('Downloading update..');
 })
 autoUpdater.on('update-not-available', (info) => {
   sendStatusToWindow('All up to date!');
 })
 autoUpdater.on('error', (err) => {
-  sendStatusToWindow('There was a problem downloading your update. ' + err);
+  sendStatusToWindow('Error with updater');
 })
 //autoUpdater.on('download-progress', (progressObj) => {
 //  let log_message = "Download speed: " + progressObj.bytesPerSecond;
@@ -209,7 +209,7 @@ autoUpdater.on('error', (err) => {
 //  sendStatusToWindow(log_message);
 //})
 autoUpdater.on('update-downloaded', (info) => {
-  sendStatusToWindow('Update downloaded, restart to install.');
+  sendStatusToWindow('Restart to install updates.');
 });
 app.on('ready', function() {
   // Create the Menu

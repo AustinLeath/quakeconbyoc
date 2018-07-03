@@ -81,6 +81,11 @@
           width: 60%;
           left: 20%;
         }
+        #appdata {
+          position: fixed;
+          top: 5px;
+          left: 5px;
+        }
     </style>
 </head>
 
@@ -91,22 +96,21 @@
         <h1 id="cycletxt-2"></h1>
         <h1 id="cycletxt-3"></h1>
       </div>
-
-    <a id="qconforumsclick" href="http://www.qconforums.com/forums/"><img src="home/images/qconforums-logo.png" alt=""/></a>
-    <a id="twitterclick" href="https://twitter.com/R6RankCalc"><img id="twitterimg" src="home/images/twitter.png" alt=""/></a>
         <section id="content">
           <!-- Content -->
-            <div id="chart"></div>
+          <a id="qconforumsclick" href="http://www.qconforums.com/forums/"><img src="home/images/qconforums-logo.png" alt=""/></a>
+          <a id="twitterclick" href="https://twitter.com/QuakeCon"><img id="twitterimg" src="home/images/twitter.png" alt=""/></a>
           <!-- Content -->
-						<div class="versionnum">
-								<a>App Version: <span id="version">v0.0.0</a>
-								<a><div id="messages"></div></a>
-						</div>
+            <div id="appdata">
+            	<a id="versioninfo">App Version: <span id="version"></a>
+              <a id="messages"></a>
+            </div>
+          <div id="chart"></div>
+          <!-- Content -->
         </section>
 			</div>
        <!-- Scripts -->
         <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
-        <!-- normal script imports etc  -->
         <script src="home/assets/js/jquery.min.js"></script>
         <!-- Insert this line after script imports -->
         <script>if (window.module) module = window.module;</script>
@@ -114,9 +118,9 @@
         <script src="home/assets/js/cycletxt.js"></script>
 				<script src="home/assets/js/switchpreset.js"></script>
 				<script src="home/assets/js/switchcustom.js"></script>
-        <script src="https://cdn.seatsio.net/chart.js"></script>
         <!--[if lte IE 8]><script src="home/assets/js/ie/respond.min.js"></script><![endif]-->
         <script src="home/assets/js/main.js"></script>
+        <script src="https://cdn.seatsio.net/chart.js"></script>
         <script>
         new seatsio.SeatingChart({
           divId: "chart",

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "main": "main.js",
   "license": "MIT",
-  "description": "A Minimalistic Rank Calculator For Rainbow Six: Siege",
+  "description": "QuakeConBYOC is an app that lets the user view the QuakeCon seats.io map.",
   "author": "Austin Leath",
   "scripts": {
     "start": "electron .",
