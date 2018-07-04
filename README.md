@@ -1,6 +1,6 @@
 
 <p align="center">
-  <a href="www.google.com" target="_blank"><img src="home/images/quakecon2018.png" width="300"/></a>
+  <img src="home/images/quakecon2018.png" width="300"/>
   <h1 align="center">QuakeConBYOC</h3>
   <p align="center">
     <img src="https://img.shields.io/github/release/austinleath/quakeconbyoc.svg" />
@@ -22,9 +22,7 @@
 - **You can find the latest release <u>[here](https://www.github.com/austinleath/quakeconbyoc/releases/latest)**</u>
 
 ## Features
--
--
-- Solid app menu
+- Solid in-app menu
 - Automatic updates
 - Clean UI
 
