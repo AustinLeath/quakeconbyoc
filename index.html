@@ -69,8 +69,8 @@
         }
         #twitterclick {
           position: fixed;
-          bottom: 10px;
-          right: 20px;
+          bottom: 5px;
+          right: 5px;
         }
         #twitterimg {
           width: 35px;
@@ -85,6 +85,16 @@
           position: fixed;
           top: 5px;
           left: 5px;
+        }
+        #versiondata{
+          position: fixed;
+          top: 5px;
+          right: 5px;
+        }
+        #appmessages{
+          position: fixed;
+          bottom: 17px;
+          right: 43px;
         }
     </style>
 </head>
@@ -102,7 +112,12 @@
           <a id="twitterclick" href="https://twitter.com/QuakeCon"><img id="twitterimg" src="home/images/twitter.png" alt=""/></a>
           <!-- Content -->
             <div id="appdata">
-            	<a id="versioninfo">App Version: <span id="version"></a>
+              Booked: <a id="booked"></a> Free: <a id="free"></a>
+            </div>
+            <div id="versiondata">
+              <a id="versioninfo">App Version: <span id="version"></a>
+            </div>
+            <div id="appmessages">
               <a id="messages"></a>
             </div>
           <div id="chart"></div>
@@ -207,5 +222,32 @@
             shell.openExternal( remoteLink );
           });
         </script>
+        <script>
+          var totalseats = 4840;
+          var Arr = null;
+          $.ajax({
+            'async': false,
+            'global': false,
+            'url': "https://www.austinleath.com/qc18.json",
+            'dataType': "json",
+            'success': function (data) {
+                Arr = data;
+            }
+        });
+
+        var Booked = 0,
+          Free = 0;
+        for (var i = 0; i < Arr.length; i++) {
+          if (Arr[i].status == "booked") {
+            Booked++;
+          } else {
+            Free++;
+          }
+        };
+
+        document.getElementById("booked").innerHTML = Booked;
+        document.getElementById("free").innerHTML = Free;
+
+      </script>
     </body>
 </html>
