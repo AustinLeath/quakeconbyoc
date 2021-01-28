@@ -13,7 +13,7 @@
     "updep": "npm install electron@latest electron-builder@latest electron-packager@latest electron-log@latest electron-updater@latest"
   },
   "devDependencies": {
-    "electron": "^2.0.8",
+    "electron": "^9.4.0",
     "electron-builder": "^20.28.2",
     "electron-packager": "^12.1.1"
   },
