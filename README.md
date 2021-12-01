@@ -11,7 +11,6 @@
   <p align="center">
     <img src="https://img.shields.io/github/downloads/AustinLeath/quakeconbyoc/total.svg" />
     <img src="https://img.shields.io/github/license/austinleath/quakeconbyoc.svg" />
-    <img src="http://hits.dwyl.io/austinleath/quakeconbyoc.svg" />
   </p>
 </p>
 
