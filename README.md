@@ -6,7 +6,6 @@
     <img src="https://img.shields.io/github/release/austinleath/quakeconbyoc.svg" />
       <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NS3ZERCW9GD8">
       <img src="https://img.shields.io/badge/Donate-PayPal-green.svg"/></a>
-    <img src="https://img.shields.io/david/austinleath/quakeconbyoc.svg" />
   </p>
   <p align="center">
     <img src="https://img.shields.io/github/downloads/AustinLeath/quakeconbyoc/total.svg" />
